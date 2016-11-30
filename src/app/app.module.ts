@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DeviceAppComponent } from './device-app/device-app.component';
+import { IsChargingComponent } from './is-charging/is-charging.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeviceAppComponent
+    DeviceAppComponent,
+    IsChargingComponent
   ],
   imports: [
     BrowserModule,

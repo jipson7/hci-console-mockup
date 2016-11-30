@@ -1,3 +1,59 @@
-<p>
-  device-app works!
-</p>
+<div class="col-sm-4">
+    <div style="height:300px;overflow:auto;">
+        <table class='table table-hover table-condensed'>
+          <tr *ngFor="let device of devices">
+            <td (click)='selectDevice(device)'>{{device.name}}</td>
+          </tr>
+        </table>
+    </div>
+    <button class='btn btn-success'>
+        <span class="glyphicon glyphicon-plus"></span>
+        Add New Device
+    </button>
+</div>
+<div class="col-sm-4">
+    <table class="table table-bordered">
+        <tr>
+            <td colspan='2'>{{selectedDevice.name}}</td>
+        </tr>
+        <tr>
+            <td>Status: </td>
+            <td>
+                <p *ngIf="selectedDevice.functional">ON</p>
+                <p *ngIf="!selectedDevice.functional">OFF</p>
+            </td>
+        </tr>
+        <tr>
+            <td>LED</td>
+            <td>{{selectedDevice.led}}</td>
+        </tr>
+        <tr>
+            <td>Kinetic Charging</td>
+            <td>
+                <is-charging charging="selectedDevice.kineticCharging"></is-charging>
+            </td>
+        </tr>
+        <tr>
+            <td>Solar Charging</td>
+            <td>
+                <is-charging charging="selectedDevice.solarCharging"></is-charging>
+            </td>
+        </tr>
+        <tr>
+            <td>External Temp</td>
+            <td>{{selectedDevice.externalTemp}} degrees</td>
+        </tr>
+        <tr>
+            <td>BatteryStatus</td>
+            <td><is-charging charging="!selectedDevice.batteryDischarging"></is-charging>
+        </tr>
+        <tr>
+            <td>Battery Health</td>
+            <td>{{selectedDevice.batteryHealth}}</td>
+        </tr>
+
+    </table>
+</div>
+<div class="col-sm-4">
+map
+</div>
