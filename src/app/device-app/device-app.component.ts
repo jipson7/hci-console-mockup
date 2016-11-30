@@ -15,6 +15,21 @@ export class DeviceAppComponent implements OnInit {
   devices: Device[] = [];
   selectedDevice: Device;
 
+  device7 = new Device({
+      id: 7,
+      name: "Gym Entrance",
+      functional: true,
+      led: "Yellow",
+      kineticCharging: true,
+      solarCharging: false,
+      externalTemp: -8,
+      batteryDischarging: true,
+      batteryHealth: 69,
+      latitude: 0,
+      longitude: 0,
+      locationDescription: "Gym Entrance near Pavillion"
+  });
+
   ngOnInit() {
       this.devices = this.deviceService.getAllDevices();
       this.selectedDevice = this.devices[0];
@@ -22,6 +37,10 @@ export class DeviceAppComponent implements OnInit {
 
   selectDevice(device: Device) {
       this.selectedDevice = device;
+  }
+
+  addDevice() {
+	this.devices.push(this.device7);
   }
 
 }
